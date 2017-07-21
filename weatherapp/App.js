@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import Forecast from './Forecast.js';
 
 export default class App extends React.Component {
@@ -18,11 +18,15 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Chanthaburi zip code is {this.state.zip}</Text>
-        {/* <Forecast main={this.state.forecast.main}/> */}
-        <Forecast {...this.state.forecast}/>
-
-
+        <Image source={require('./weather-bg.jpg')}
+          resizeMode='cover'
+          style={styles.backdrop}>
+        <View style={styles.overlay}>  
+          <Text>Chanthaburi zip code is {this.state.zip}</Text>
+          {/* <Forecast main={this.state.forecast.main}/> */}
+          <Forecast {...this.state.forecast}/>
+        </View>
+        </Image>
       </View>
     );
   }
@@ -31,9 +35,25 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: 30
   },
-  
+  backdrop: {
+    flex: 1,
+    flexDirection: 'column'
+  },
+  overlay: {
+    height: 200,
+    paddingTop: 30,
+    backgroundColor: '#000000',
+    opacity: 0.5,
+    flexDirection: 'column',
+    alignItems: 'center'
+  },
+  mainText: {
+    flex: 1,
+    fontSize: 16,
+    color: '#FFFFFF',
+  }
+
 });
