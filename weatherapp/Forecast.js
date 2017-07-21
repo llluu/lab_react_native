@@ -6,7 +6,7 @@ export default class Forecast extends React.Component {
     return (
       <View style={styles.container}>
         <Text>{this.props.main}</Text>
-        <Text>{this.props.description}}</Text>
+        <Text>{this.props.description}</Text>
         <Text>{this.props.temp} C</Text>
       </View>
     );
