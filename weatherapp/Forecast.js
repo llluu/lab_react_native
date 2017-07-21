@@ -1,29 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default class App extends React.Component {
-
-  constructor(props){
-    super(props);
-    this.state = {
-      zip: 22000,
-      forecast: {
-        main: '-',
-        description: '-',
-        temp: 0
-      }
-    }
-  }
-
-
-
-
-
-
+export default class Forecast extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Chanthaburi zip code is {this.state.zip}</Text>
+        <Text>{this.props.main}</Text>
+        <Text>{this.props.description}}</Text>
+        <Text>{this.props.temp} C</Text>
       </View>
     );
   }
